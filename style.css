@@ -130,3 +130,16 @@ footer {
 .pro{
   margin-bottom: 15px;
 }
+
+@keyframes bounceAndSpin {
+  0% { transform: scale(1) rotate(0deg); color: #ff9acc; }
+  25% { transform: scale(1.2) rotate(10deg); color: #ffbd6de4; }
+  50% { transform: scale(1) rotate(-10deg); color: #beec5c; }
+  75% { transform: scale(1.2) rotate(10deg); color: #6cf2ca; }
+  100% { transform: scale(1) rotate(0deg); color: #dd94ff; }
+}
+
+.animated {
+  display: inline-block;
+  animation: bounceAndSpin 0.6s ease-in-out;
+}
