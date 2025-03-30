@@ -58,9 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+  
+      //Dark -mode
+      const isDark = document.body.classList.contains("dark-mode");
+      const modeColor = isDark? "174, 198, 207" : "92, 64, 51";
+
       stars.forEach(star => {
-          ctx.fillStyle = `rgba(0, 0, 0, ${star.opacity})`;
+          ctx.fillStyle = `rgba(${modeColor}, ${star.opacity})`;
           ctx.beginPath();
           ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
           ctx.fill();
@@ -70,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const distance = Math.sqrt(dx * dx + dy * dy);
           
           if (distance < 200) {
-              const lineOpacity = 0.8 * (1 - distance / 200);
-              ctx.strokeStyle = `rgba(0, 0, 0, ${lineOpacity})`;
+              const lineOpacity = 0.8 * (1 - distance / 150);
+              ctx.strokeStyle = `rgba(${modeColor}, ${lineOpacity})`;
               ctx.lineWidth = 0.8;
               ctx.beginPath();
               ctx.moveTo(star.x, star.y);
