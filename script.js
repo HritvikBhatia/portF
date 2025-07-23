@@ -10,9 +10,11 @@ document.getElementById("nameLink").addEventListener("click", function (event) {
 
 const checkboxBtn = document.querySelector("#dark-mode");
 
-if(localStorage.getItem("darkMode") == "enabled"){
-  document.body.classList.add("dark-mode")
-  checkboxBtn.checked = true
+const stored = localStorage.getItem("darkMode");
+
+if (stored === "enabled" || stored === null) {
+  document.body.classList.add("dark-mode");
+  checkboxBtn.checked = true;
 }
 
 checkboxBtn.addEventListener("change", () => {
